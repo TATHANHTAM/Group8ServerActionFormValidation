@@ -9,13 +9,14 @@ web/
 ├── app/
 │   ├── (auth)/              # Trang đăng nhập, đăng ký và layout xác thực
 │   ├── actions/             # Server Actions cho auth và bài viết
+│   ├── feedback/            # Form góp ý khách hàng
 │   ├── feed/                # Trang feed được bảo vệ bởi session
 │   ├── globals.css          # Toàn bộ style dùng chung
 │   ├── layout.tsx           # Root layout
 │   └── page.tsx             # Chuyển / sang /login
 ├── components/
 │   ├── feed/                # Header, danh sách và thẻ bài viết
-│   ├── forms/               # Form đăng ký, đăng nhập, đăng/xóa bài, đăng xuất
+│   ├── forms/               # Form đăng ký, đăng nhập, góp ý, đăng/xóa bài, đăng xuất
 │   └── ui/                  # Nút submit và thông báo dùng lại
 ├── lib/
 │   ├── auth/                # Hash mật khẩu và quản lý session
@@ -41,7 +42,12 @@ web/
 | `/` | Chuyển hướng sang `/login` |
 | `/register` | Đăng ký tài khoản |
 | `/login` | Đăng nhập và tạo session |
+| `/feedback` | Gửi góp ý; kiểm tra nội dung và số điện thoại bằng Zod |
 | `/feed` | Xem feed, đăng bài, xóa bài của mình và đăng xuất |
+
+Form góp ý chấp nhận nội dung sau khi bỏ khoảng trắng có độ dài từ 21 ký tự
+và số di động Việt Nam dạng `0912345678` hoặc `+84912345678`. Form hiện chỉ
+kiểm tra dữ liệu, chưa lưu góp ý.
 
 ## Chạy dự án
 
@@ -78,4 +84,3 @@ Demo thành công sẽ tạo session và chuyển sang `/feed`. Đăng xuất gi
   - Trường **"Số điện thoại"** phải đúng định dạng số điện thoại Việt Nam.
 
 - **Tiêu chí chấm điểm:** Nhập dữ liệu sai để kiểm tra các thông báo validation của từng nhóm, gồm nội dung không vượt quá 20 ký tự và số điện thoại không đúng định dạng Việt Nam. Các nhóm trình bày kết quả kiểm tra và thông báo lỗi trên form.
-

@@ -412,6 +412,56 @@ a:hover {
   color: #638ed5;
 }
 
+.feedback-page {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.feedback-card {
+  width: min(100%, 520px);
+  padding: clamp(1.4rem, 5vw, 2.25rem);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #dce8f2;
+  border-radius: 1.1rem;
+  box-shadow: var(--shadow-card);
+}
+
+.feedback-back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #638ed5;
+}
+
+.feedback-card h1 {
+  margin: 0;
+  color: #1d2a40;
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  letter-spacing: -0.035em;
+}
+
+.feedback-description {
+  margin: 0.5rem 0 1.5rem;
+  color: #64758e;
+}
+
+.feedback-card .field-group textarea {
+  min-height: 9rem;
+}
+
+.feedback-card .primary-button {
+  width: 100%;
+}
+
+.feedback-note {
+  margin: 1rem 0 0;
+  color: var(--slate-500);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
 .feed-shell {
   --feed-blue: #65afe3;
   --feed-aqua: #70c8c9;
@@ -778,8 +828,8 @@ a:hover {
   }
 
   .user-actions {
-    align-items: flex-end;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 0.45rem;
   }
 
@@ -788,6 +838,11 @@ a:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .user-actions > p {
+    flex-basis: 100%;
+    text-align: right;
   }
 
   .logout-control .form-alert {

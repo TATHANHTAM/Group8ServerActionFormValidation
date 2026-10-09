@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { LogoutButton } from "@/components/forms/LogoutButton";
 import type { CurrentUser } from "@/lib/types/feed";
 
@@ -19,6 +20,7 @@ export function FeedHeader({ currentUser }: FeedHeaderProps) {
         </div>
         <div className="user-actions">
           <p>Xin chào, <strong>{currentUser.username}</strong></p>
+          <Link className="secondary-button" href="/feedback">Góp ý</Link>
           <LogoutButton />
         </div>
       </div>
