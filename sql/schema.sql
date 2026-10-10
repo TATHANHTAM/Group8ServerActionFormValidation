@@ -28,7 +28,15 @@ CREATE TABLE sessions (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   CONSTRAINT sessions_token_hash_unique UNIQUE (token_hash)
 );
+CREATE TABLE feedback (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  content TEXT NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  CONSTRAINT feedback_content_length CHECK (length(btrim(content)) > 20)
+);
 
+CREATE INDEX feedback_created_at_idx ON feedback (created_at DESC);
 CREATE INDEX posts_feed_idx ON posts (created_at DESC, id DESC);
 CREATE INDEX posts_author_idx ON posts (author_id);
 CREATE INDEX sessions_user_idx ON sessions (user_id);
